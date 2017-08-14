@@ -13,5 +13,7 @@ namespace wedding_planner.Models
  
         public int WeddingId { get; set; }
         public Wedding wedding { get; set; }
+        public DateTime CreatedAt {get; set;}
+        public DateTime UpdatedAt {get; set;}
     }
 }

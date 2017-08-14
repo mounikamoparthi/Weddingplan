@@ -13,11 +13,11 @@ namespace wedding_planner.Models
         public string Password { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
-        public List<Wedding> Weddings { get; set; }
+        public List<Invite> Invites { get; set; }
  
         public User()
         {
-            Weddings = new List<Wedding>();
+            Invites = new List<Invite>();
         
         }
     }
