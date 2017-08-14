@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using wedding_planner.Models;
 
-namespace bankaccounts.Models
+namespace wedding_planner.Models
 {
     public class User : BaseEntity
     {

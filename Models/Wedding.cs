@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using bankaccounts.Models;
 using wedding_planner.Models;
 
 namespace wedding_planner.Models

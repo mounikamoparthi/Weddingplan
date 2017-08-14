@@ -1,0 +1,31 @@
+
+<link rel="stylesheet" href="~/css/site.css" />
+<a href = "/"> Logout </a>
+<h3> Welcome to the Wedding Planner! </h3>
+
+@{
+                if(ViewBag.status != null){
+                    <p>@ViewBag.status[0]</p>
+                }
+            }
+<a href = '/create'> New Wedding 
+
+
+
+
+
+<table border = 1>
+    <div class = table>
+@{
+    
+    <tr>
+        <td> Wedding </td>
+        <td> Date </td>
+        <td> Guests </td>
+        <td> Action </td>
+    </tr>
+    
+</div>
+
+</table>
+
