@@ -48,7 +48,7 @@ namespace wedding_planner.Controllers
                 User EnteredPerson = _context.user.SingleOrDefault(user => user.EmailId == model.EmailId);
                 HttpContext.Session.SetString("FirstName", EnteredPerson.FirstName);
                 HttpContext.Session.SetInt32("UserId",EnteredPerson.UserId);
-                return RedirectToAction("show",EnteredPerson.UserId);
+                return RedirectToAction("show","Wedding");
             }
             else 
             {
@@ -66,19 +66,12 @@ namespace wedding_planner.Controllers
              {
                 HttpContext.Session.SetString("FirstName", loggedUser.FirstName);
                 HttpContext.Session.SetInt32("UserId", loggedUser.UserId);
-                return RedirectToAction("show",loggedUser.UserId);
+                return RedirectToAction("show","Wedding");
              }
 
                ViewBag.Errors = new List<string>(){ "Check Username and password"};
                 return View("Index");
         }
-        [HttpGet]
-        [Route("show")]
-        public IActionResult show(){
-            ViewBag.UserName = HttpContext.Session.GetString("FirstName");
-            var loggedUserId = HttpContext.Session.GetInt32("UserId");
-           
-            return View("show");
-        }
+       
     }
 }
