@@ -68,8 +68,8 @@ namespace wedding_planner.Controllers
         public IActionResult attending(int weddingid)
         {
             Invitation newinv = new Invitation();
-            int userid = (int)HttpContext.Session.GetInt32("UserId");
-            newinv.UserId = userid;
+            var loggedUserId = HttpContext.Session.GetInt32("UserId");
+            newinv.UserId = loggedUserId.Value;
             newinv.WeddingId = weddingid;
 
             _context.Add(newinv);
@@ -81,8 +81,8 @@ namespace wedding_planner.Controllers
         public IActionResult notattending(int weddingid)
         {
             Invitation newinv = new Invitation();
-            int userid = (int)HttpContext.Session.GetInt32("UserId");
-            Invitation invitationrecord = _context.invitations.SingleOrDefault(w => w.WeddingId == weddingid && w.UserId == userid);
+            var loggedUserId = HttpContext.Session.GetInt32("UserId");
+            Invitation invitationrecord = _context.invitations.SingleOrDefault(w => w.WeddingId == weddingid && w.UserId == loggedUserId.Value);
             _context.invitations.Remove(invitationrecord);
             _context.SaveChanges();
 
@@ -92,7 +92,7 @@ namespace wedding_planner.Controllers
         [Route("wedding/details/{weddingid}")]
         public IActionResult show(int weddingid)
         {
-            int userid = (int)HttpContext.Session.GetInt32("UserId");
+            var loggedUserId = HttpContext.Session.GetInt32("UserId");
             Wedding weddingrecord = _context.weddings.SingleOrDefault(w => w.WeddingId == weddingid);
             List<Invitation> invitationrecords = _context.invitations.Where(w => w.WeddingId == weddingid)
             .Include(p => p.user)

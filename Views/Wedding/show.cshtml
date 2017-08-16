@@ -26,13 +26,15 @@
 
  @foreach(var wedding in @ViewBag.weddings){
         <tr> 
-            <td> @wedding.SpouseOne and @wedding.SpouseTwo </td>
+            <td><a href = "wedding/details/@wedding.WeddingId"> @wedding.SpouseOne and @wedding.SpouseTwo </td>
             <td> @wedding.WeddingDate.ToString("MMMM dd yyyy")</td>
             <td> @wedding.Invitations.Count </td>
             @{bool attending = false;}
             @if(@wedding.UserId == @ViewBag.UserId){
+                <p> @wedding.UserId and @ViewBag.UserId</p>
                  <td><a href="wedding/deletewed/@wedding.WeddingId">Delete</a></td>
             }
+           
             else{
                 @foreach(var guest in @wedding.Invitations)
                 {

@@ -1,15 +1,10 @@
-<html>
-    <a  asp-controller="Wedding"  asp-action="show"><button>Dashboard</button></a>
-    <a  asp-controller="Home"  asp-action="logout"><button>Logout</button></a>
+
+    <a href = "/show">Dashboard</a>
+    <a asp-controller="Home" asp-action="logout"><button>Logout</button></a>
     <h3>@ViewBag.weddingrecord.SpouseOne and  @ViewBag.weddingrecord.SpouseTwo Wedding</h3>
     <h4> Date: @ViewBag.weddingrecord.WeddingDate.ToString("MMMM dd yyyy")</h4>
     <h4> Guests: </h4>
     @foreach (var a in @ViewBag.invitationrecords){
         <p> @a.user.FirstName </p>
     }
-    <div class="col-sm-6">
-            <iframe width="300" height="250" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/search?key=AIzaSyCE5rc8HduPNe5ZN5B6yLPQYMPmZ1jYTcw
-    &q=@ViewBag.weddingrecord.Weddingaddress.Replace(" ", "+")" allowfullscreen>
-            </iframe>
-        </div>
-</html>
+    
