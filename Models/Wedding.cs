@@ -11,7 +11,7 @@ namespace wedding_planner.Models
         public string SpouseTwo { get; set; }
         public int UserId {get; set;}
         public User user {get; set;}
-        public string WeddingAddress {get; set;}
+        public string Weddingaddress {get; set;}
         public DateTime WeddingDate { get; set; }
         public DateTime CreatedAt {get; set;}
         public DateTime UpdatedAt { get; set;}

@@ -26,18 +26,28 @@
             <td> @wedding.Invitations.Count </td>
             @{bool attending = false;}
             @if(@wedding.UserId == @ViewBag.UserId){
-                 <td><a href="delete/@wedding.WeddingId">Delete</a></td>
+                 <td><a href="wedding/deletewed/@wedding.WeddingId">Delete</a></td>
             }
-            @foreach(var guest in @wedding.Invitations){
-            @if(@guest.UserId == @ViewBag.UserId)
-            {
-                attending = true;
-            }
-        }
-        </tr>
- }
- 
+            else{
+                @foreach(var guest in @wedding.Invitations)
+                {
+                    @if(@guest.UserId == @ViewBag.UserId)
+                    {
+                        attending = true;
+                    }
+                }
+                @if(attending){
+                 <td> <a href = "wedding/notattending/@wedding.WeddingId">Un-RSVP</a></td>
+              }
+              else{
+                <td> <a href = "wedding/attending/@wedding.WeddingId">RSVP</a></td>
+              }
+      }
+
+      </tr>
+      }  
 </table>
+
 </br></br>
 <a href="/create"><button>Add a Wedding</button></a>
 
