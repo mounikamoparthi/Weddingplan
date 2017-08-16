@@ -21,10 +21,10 @@ namespace wedding_planner.Controllers
         [Route("show")]
         public IActionResult show(){
         
-            List<Wedding> weddings = _context.wedding
-                                        .Include(wedding => wedding.Invites)
+            List<Wedding> wedd = _context.weddings
+                                        .Include(wedding => wedding.Invitations)
                                         .ToList();
-            ViewBag.weddings = weddings;
+            ViewBag.weddings = wedd;
             ViewBag.UserId = HttpContext.Session.GetInt32("UserId");
             return View("show");
         }
@@ -49,8 +49,25 @@ namespace wedding_planner.Controllers
                 _context.Add(NewWedding);
                 _context.SaveChanges();
              
-                return RedirectToAction("show","Home");
+                return RedirectToAction("show");
             
+        }
+        [HttpGet]
+        [Route("wedding/deletewed/{weddingid}")]
+        public IActionResult deletewed(int weddingid)
+        {
+                Wedding weddingrecord = _context.weddings.SingleOrDefault(w => w.WeddingId == weddingid);
+                _context.weddings.Remove(weddingrecord);
+                _context.SaveChanges();
+                return RedirectToAction("show"); 
+        }
+
+        [HttpGet]
+        [Route("wedding/{WeddingId}")]
+        {
+            public IActionResult details(int WeddingId){
+
+            }
         }
     }
 }

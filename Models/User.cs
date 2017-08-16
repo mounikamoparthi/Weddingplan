@@ -11,8 +11,6 @@ namespace wedding_planner.Models
         public string LastName { get; set; }
         public string EmailId { get; set; }
         public string Password { get; set; }
-        public DateTime CreatedAt { get; set; }
-        public DateTime UpdatedAt { get; set; }
         public List<Invitation> Invitations { get; set; }
  
         public User()

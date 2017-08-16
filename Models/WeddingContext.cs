@@ -9,7 +9,7 @@ namespace wedding_planner.Models
         public DbSet<User> user {get;set;}
 
         public DbSet<Wedding> weddings {get; set;}
-        public DbSet<Invite> invitations {get; set;}
+        public DbSet<Invitation> invitations {get; set;}
     }
 
 }

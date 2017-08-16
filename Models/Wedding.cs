@@ -13,6 +13,8 @@ namespace wedding_planner.Models
         public User user {get; set;}
         public string WeddingAddress {get; set;}
         public DateTime WeddingDate { get; set; }
+        public DateTime CreatedAt {get; set;}
+        public DateTime UpdatedAt { get; set;}
          public List<Invitation> Invitations { get; set; }
  
         public Wedding()

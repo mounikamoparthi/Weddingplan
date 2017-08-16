@@ -1,11 +1,11 @@
 <h3>Plan your Wedding!</h3> 
 <a href = "/show"> Dashboard </a> 
-    <a href = "/"> Logout </a>
+    <a asp-controller="Home" asp-action="Logout"> Logout </a>
 <form asp-controller="Wedding" asp-action="Wedform">
-    <label for='Wedder1'>Wedder1: </label>
-        <input type='Wedder1' name='Wedder1'>
-    <label for='Wedder2'>Wedder2: </label>
-        <input type='Wedder2' name='Wedder2'>
+    <label for='SpouseOne'>SpouseOne: </label>
+        <input type='SpouseOne' name='SpouseOne'>
+    <label for='SpouseTwo'>SpouseTwo: </label>
+        <input type='SpouseTwo' name='SpouseTwo'>
     <label for='WeddingDate'>WeddingDate: </label>
         <input type='date' name='WeddingDate'>
     <label for='WeddingAddress'>WeddingAddress: </label>

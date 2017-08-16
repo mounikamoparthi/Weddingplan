@@ -1,3 +1,4 @@
+
 using System.ComponentModel.DataAnnotations;
 namespace wedding_planner.Models
 {

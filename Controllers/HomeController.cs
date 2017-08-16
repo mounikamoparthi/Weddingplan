@@ -34,8 +34,6 @@ namespace wedding_planner.Controllers
                     LastName = model.LastName,
                     EmailId = model.EmailId,
                     Password = model.Password,
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = DateTime.Now
                    
                 };
  
@@ -71,6 +69,12 @@ namespace wedding_planner.Controllers
 
                ViewBag.Errors = new List<string>(){ "Check Username and password"};
                 return View("Index");
+        }
+        [HttpGet]
+        [Route("logout")]
+        public IActionResult Logout(){
+            HttpContext.Session.Clear();
+            return RedirectToAction("Index");
         }
        
     }
