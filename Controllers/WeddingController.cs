@@ -42,10 +42,10 @@ namespace wedding_planner.Controllers
         {
             System.Console.WriteLine("adding newwedding");
 
-            var loggedUserId = HttpContext.Session.GetInt32("UserId");
+            int? loggedUserId = HttpContext.Session.GetInt32("UserId");
 
 
-            NewWedding.UserId = loggedUserId.Value;
+            NewWedding.UserId = (int)loggedUserId;
 
             _context.Add(NewWedding);
             _context.SaveChanges();
@@ -68,8 +68,8 @@ namespace wedding_planner.Controllers
         public IActionResult attending(int weddingid)
         {
             Invitation newinv = new Invitation();
-            var loggedUserId = HttpContext.Session.GetInt32("UserId");
-            newinv.UserId = loggedUserId.Value;
+            int? loggedUserId = HttpContext.Session.GetInt32("UserId");
+            newinv.UserId = (int)loggedUserId;
             newinv.WeddingId = weddingid;
 
             _context.Add(newinv);
@@ -81,8 +81,8 @@ namespace wedding_planner.Controllers
         public IActionResult notattending(int weddingid)
         {
             Invitation newinv = new Invitation();
-            var loggedUserId = HttpContext.Session.GetInt32("UserId");
-            Invitation invitationrecord = _context.invitations.SingleOrDefault(w => w.WeddingId == weddingid && w.UserId == loggedUserId.Value);
+            int? loggedUserId = HttpContext.Session.GetInt32("UserId");
+            Invitation invitationrecord = _context.invitations.SingleOrDefault(w => w.WeddingId == weddingid && w.UserId == (int)loggedUserId);
             _context.invitations.Remove(invitationrecord);
             _context.SaveChanges();
 
@@ -92,7 +92,7 @@ namespace wedding_planner.Controllers
         [Route("wedding/details/{weddingid}")]
         public IActionResult show(int weddingid)
         {
-            var loggedUserId = HttpContext.Session.GetInt32("UserId");
+            int? loggedUserId = HttpContext.Session.GetInt32("UserId");
             Wedding weddingrecord = _context.weddings.SingleOrDefault(w => w.WeddingId == weddingid);
             List<Invitation> invitationrecords = _context.invitations.Where(w => w.WeddingId == weddingid)
             .Include(p => p.user)
