@@ -81,7 +81,7 @@ namespace wedding_planner.Controllers
         public IActionResult notattending(int weddingid)
         {
             Invitation newinv = new Invitation();
-            int userid = (int)HttpContext.Session.GetInt32("uid");
+            int userid = (int)HttpContext.Session.GetInt32("UserId");
             Invitation invitationrecord = _context.invitations.SingleOrDefault(w => w.WeddingId == weddingid && w.UserId == userid);
             _context.invitations.Remove(invitationrecord);
             _context.SaveChanges();
