@@ -34,8 +34,7 @@
                 <p> @wedding.UserId and @ViewBag.UserId</p>
                  <td><a href="wedding/deletewed/@wedding.WeddingId">Delete</a></td>
             }
-           
-            else{
+           else{
                 @foreach(var guest in @wedding.Invitations)
                 {
                     @if(@guest.UserId == @ViewBag.UserId)
@@ -46,10 +45,10 @@
                 @if(attending){
                  <td> <a href = "wedding/notattending/@wedding.WeddingId">Un-RSVP</a></td>
               }
-              else{
+               else{
                 <td> <a href = "wedding/attending/@wedding.WeddingId">RSVP</a></td>
               }
-      }
+           }
 
       </tr>
       }  

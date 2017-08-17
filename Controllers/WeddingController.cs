@@ -90,7 +90,7 @@ namespace wedding_planner.Controllers
         }
         [HttpGet]
         [Route("wedding/details/{weddingid}")]
-        public IActionResult show(int weddingid)
+        public IActionResult details(int weddingid)
         {
             int? loggedUserId = HttpContext.Session.GetInt32("UserId");
             Wedding weddingrecord = _context.weddings.SingleOrDefault(w => w.WeddingId == weddingid);
